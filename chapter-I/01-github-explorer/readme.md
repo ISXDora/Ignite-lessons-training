@@ -140,6 +140,29 @@ const path = require('path')
     }
 ~~~
 
+*Ambiente de desenvolvimento X produção*
 
+>Algumas configurações fazem mais sentido dependendo do ambiente em que a aplicação esteja rodando.
+
+~~~javascript
+const path = require('path') //caminho relativo dentro do Node.js
+const HtmlwebpackPlugin = require('html-webpack-plugin')
+
+const isDevelopment = proces.env.NODE.ENV !== 'production';
+
+module.exports = {
+    mode: isDevelopment ? 'development' : 'production',
+    devTool: isDevelopment ? 'eval-source-map' : 'source-map',
+    ...
+}
+~~~
+
+*Criando variáveis de ambiente*
+
+>Independente do SO!
+
+`yarn add cross-env -D`
+
+>Altere o arquivo package.json
 
 

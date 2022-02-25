@@ -1,9 +1,12 @@
 const path = require('path') //Recurso que auxilia uso de barra independente do SO
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 
+const isDevelopment = proces.env.NODE.ENV !== 'production';
+
 module.exports = {
     // entry:'src/index.jsx' ==> Sem o uso do path
-    mode: 'development',
+    mode: isDevelopment ? 'development' : 'production',
+    devTool: isDevelopment ? 'eval-source-map' : 'source-map',
     entry: path.resolve(__dirname, 'src', 'index.jsx'), // Arquivo de entrada
     output: {
         path: path.resolve(__dirname, 'dist'), //Arquivos convertidos
