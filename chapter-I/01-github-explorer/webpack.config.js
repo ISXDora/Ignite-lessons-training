@@ -9,14 +9,17 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), //Arquivos convertidos
         filename: 'bundle.js'
     }, 
-    resolve: {
-        extensions: ['.js', '.jsx'], // Arquivos que trabalham no código
-    },
     plugins: [
         new HtmlwebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')
         })
     ],
+    devServer: {
+        contentBase: path.resolve(__dirname, 'public')
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'], // Arquivos que trabalham no código
+    },
     module: { //insere as regras de tratamento 
         rules: [ // recebe um array de objetos
             { //um objeto para cada tipo de arquivo a ser tratado

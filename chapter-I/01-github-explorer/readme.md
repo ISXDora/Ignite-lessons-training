@@ -102,5 +102,44 @@ render(<App/>, document.getElementById('root'))
 
 >Importe para dentro do arquivo de configuração do webpack.E insira as informações do plugin, dentro da propriedade plugin.
 
+~~~javascript
+    ,
+    plugins: [
+        new HtmlwebpackPlugin({
+            template: path.resolve(__dirname, 'public', 'index.html')
+        })
+    ],
+~~~
+
+>Instale o webpack-dev-server **serve alterações que são obseravadas nos arquivos estáticos da aplicação**
+
+`yarn add webpack-dev-server -D`
+
+>Alterando arquivo de configuração:
+
+~~~javascript
+    const path = require('path')
+    module.exports ={
+
+        devServer: {
+            contentBase: path.resolve(__dirname, 'public')
+        }  
+    }
+~~~
+
+*Configurando Source Maps*
+
+>Sem o source maps configurado, ao lançar um erro é passado o código gerado através das transcrições (feitas no código moderno para o browser) e com isso mais difícil de encontrar o erro. Ao configurar o source maps, ele aponta mais facilmente em qual linha do código 'original' está.
+
+~~~javascript 
+const path = require('path')
+    module.exports = {
+        mode: 'development',
+        devTool: 'eval-source-map',
+        ... 
+    }
+~~~
+
+
 
 
