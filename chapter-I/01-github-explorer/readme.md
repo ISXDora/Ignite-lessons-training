@@ -30,7 +30,9 @@ Após adicione os presets ao arquivo de configuraçaão do Babel.
 module.exports = {
     presets: [
         '@babel/preset-env', //identifica o ambiente para transpilar da melhro maneira
-        '@babel/preset-react'
+        '@babel/preset-react', {
+            runtime: 'automatic' //funciona como um auto-import da biblioteca react dentro do código.
+        }
     ],
 }
 ~~~
@@ -69,5 +71,36 @@ module.exports = {
 ~~~
 
 *Integrando o babel com o webpack*
+
 `yarn add babel-loader -D`
+
+*Config webpack para ambiente de desenvolvimento*
+
+~~~javascript
+module.exports = {
+    mode:'development',
+    ...
+}
+~~~
+
+*Renderizando elementos/componentes em tela*
+
+>Dentro do arquivo src/index.jsx, vamos usar a função **render** de dentro do **react-dom**.
+
+~~~javascript
+import {render} from 'react-dom'
+import {App} from './App'
+
+render(<App/>, document.getElementById('root'))
+~~~
+
+*Melhorando fluxo da aplicação*
+
+>Instale
+
+`yarn add html-webpack-plugin -D`
+
+>Importe para dentro do arquivo de configuração do webpack.E insira as informações do plugin, dentro da propriedade plugin.
+
+
 

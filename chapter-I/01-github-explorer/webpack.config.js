@@ -1,7 +1,9 @@
 const path = require('path') //Recurso que auxilia uso de barra independente do SO
+const HtmlwebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     // entry:'src/index.jsx' ==> Sem o uso do path
+    mode: 'development',
     entry: path.resolve(__dirname, 'src', 'index.jsx'), // Arquivo de entrada
     output: {
         path: path.resolve(__dirname, 'dist'), //Arquivos convertidos
@@ -10,6 +12,11 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'], // Arquivos que trabalham no código
     },
+    plugins: [
+        new HtmlwebpackPlugin({
+            template: path.resolve(__dirname, 'public', 'index.html')
+        })
+    ],
     module: { //insere as regras de tratamento 
         rules: [ // recebe um array de objetos
             { //um objeto para cada tipo de arquivo a ser tratado
