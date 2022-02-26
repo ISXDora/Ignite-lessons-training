@@ -111,7 +111,7 @@ render(<App/>, document.getElementById('root'))
     ],
 ~~~
 
->Instale o webpack-dev-server **serve alterações que são obseravadas nos arquivos estáticos da aplicação**
+>Instale o webpack-dev-server **observa os arquivos estáticos que são alterados para fazer auto-reload**
 
 `yarn add webpack-dev-server -D`
 
@@ -122,8 +122,8 @@ render(<App/>, document.getElementById('root'))
     module.exports ={
 
         devServer: {
-            contentBase: path.resolve(__dirname, 'public')
-        }  
+            static: './dist',
+        },  
     }
 ~~~
 
@@ -148,11 +148,11 @@ const path = require('path')
 const path = require('path') //caminho relativo dentro do Node.js
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 
-const isDevelopment = proces.env.NODE.ENV !== 'production';
+const isDevelopment = process.env.NODE.ENV !== 'production';
 
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
-    devTool: isDevelopment ? 'eval-source-map' : 'source-map',
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     ...
 }
 ~~~
@@ -165,4 +165,13 @@ module.exports = {
 
 >Altere o arquivo package.json
 
+~~~json
+"scripts": {
+    "dev": "webpack serve",
+    "build": "cross-env NODE_ENV = production webpack"
+  }
+~~~
 
+>**Testar no console:**
+
+`yarn dev`

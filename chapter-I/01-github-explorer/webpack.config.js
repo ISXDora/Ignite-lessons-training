@@ -1,12 +1,12 @@
 const path = require('path') //Recurso que auxilia uso de barra independente do SO
 const HtmlwebpackPlugin = require('html-webpack-plugin')
 
-const isDevelopment = proces.env.NODE.ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     // entry:'src/index.jsx' ==> Sem o uso do path
     mode: isDevelopment ? 'development' : 'production',
-    devTool: isDevelopment ? 'eval-source-map' : 'source-map',
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     entry: path.resolve(__dirname, 'src', 'index.jsx'), // Arquivo de entrada
     output: {
         path: path.resolve(__dirname, 'dist'), //Arquivos convertidos
@@ -17,12 +17,12 @@ module.exports = {
             template: path.resolve(__dirname, 'public', 'index.html')
         })
     ],
-    devServer: {
-        contentBase: path.resolve(__dirname, 'public')
-    },
     resolve: {
         extensions: ['.js', '.jsx'], // Arquivos que trabalham no código
     },
+    devServer: {
+        static: './dist',
+      },
     module: { //insere as regras de tratamento 
         rules: [ // recebe um array de objetos
             { //um objeto para cada tipo de arquivo a ser tratado
