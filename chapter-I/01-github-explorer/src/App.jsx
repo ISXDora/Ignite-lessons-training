@@ -1,5 +1,5 @@
 import {React} from 'react';
-import global from '../public/global.css'
+import '../public/global.scss'
 
 export function App(){
 

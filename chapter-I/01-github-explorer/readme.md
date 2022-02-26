@@ -201,3 +201,30 @@ module.exports = {
     },
 }
 ~~~
+
+*Trabalhando com sass*
+
+>Instale
+
+`yarn add sass-loader -D`
+`yarn add node-sass -D`
+
+>Altere a extensão dos arquivos para .scss, no webpack, no arquivo, e na importação do arquivo.
+    >>Adicione o loader 'sass-loader' ao final do array.
+
+~~~javascript 
+const path = require('path');
+const HtmlwebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+    module: { //insere as regras de tratamento 
+        rules: [ // recebe um array de objetos
+            {
+                test: /\.scss$/, 
+                exclude: /node_modules/, 
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+        ]
+    },
+}
+~~~
