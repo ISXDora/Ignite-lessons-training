@@ -166,6 +166,7 @@ module.exports = {
 >Altere o arquivo package.json
 
 ~~~json
+
 "scripts": {
     "dev": "webpack serve",
     "build": "cross-env NODE_ENV = production webpack"
@@ -175,3 +176,28 @@ module.exports = {
 >**Testar no console:**
 
 `yarn dev`
+
+*Preparar webpack para arquivos .css*
+
+>Instalar loaders:
+
+`yarn add style-loader css-loader -D`
+
+>Adicionar objeto de configuração no webpack para .css 
+
+~~~javascript 
+const path = require('path');
+const HtmlwebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+    module: { //insere as regras de tratamento 
+        rules: [ // recebe um array de objetos
+            {
+                test: /\.css$/, 
+                exclude: /node_modules/, 
+                use: ['style-loader', 'css-loader']
+            },
+        ]
+    },
+}
+~~~

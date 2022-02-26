@@ -30,6 +30,11 @@ module.exports = {
                 exclude: /node_modules/, //por padrão os arquivos cada biblioteca é responsável por seu arquivo de build, daí vamos excluir essa possibilidade.
                 use: 'babel-loader' //transfere a responsabilidade do build para essa biblioteca.
             },
+            {
+                test: /\.css$/, 
+                exclude: /node_modules/, 
+                use: ['style-loader', 'css-loader']
+            },
         ]
     },
 }
