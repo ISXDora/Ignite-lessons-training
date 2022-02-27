@@ -230,3 +230,43 @@ module.exports = {
 ~~~
 
 >**Prontinho pra começar**
+
+*React*
+
+>O React é uma biblioteca javascript declativa baseada em componentes para contruir interfaces de usuário.
+
+*Componentes*
+
+>Blocos de códigos independentes. Facilitam o reúso de código, gerenciam seu próprio estado e são renderizados/atualizados de forma independente. Combinado com outros componentes tornam uma aplicação poderosa. Também podem ser aplicados em outras interfaces web.
+
+*Props*
+
+>Passadas de componentes pai para componente filho, desde que esse receba como parametro `ComponenteFilho(props){ Corpo do componente}`.
+
+*Estado / Imutabilidade*
+
+>O react gerencia estados através do hook **useState**, por padrão ele não fica monitorando as variáveis pra verificar se há mudança.
+
+>O **useState** declara uma variável **state** onde os valores são preservados entre as chamadas de funções. Tem como argumento o valor inicial da variável state. A função tem 2 retornos, o valor atual da variável, e uma função que a atualiza. Pois não alteramos a varável state diretamente, usamos a função setVariavel.
+
+>Só pode ser declarado dentro do corpo da função, declarada através de **const** via **desestruturação**.
+
+Ex.:
+
+~~~javascript
+import {useState} from 'react';
+
+function Example(){
+    const [variavel, setVariavel] = useState('0')
+}
+~~~
+
+>**A aplicação que roda com o dev Server reseta as alterações quando há alteração do código estático, e perde o estado do componente. Pra evitar, vamos usar o plugin fresh-refresh**
+
+`yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh`
+
+>Importe para o arquivo de configuração do webpack.
+
+~~~javascript 
+
+~~~
