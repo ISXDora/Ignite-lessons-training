@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    
+    font: 16px 'Helvetica Neue', sans-serif;
+    color: #44a882;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+html{
+    height: 100vh;
+    width: 100vw;
+    
+}
+.wrapper-container {
+    width: 100%;
+    max-width: 940px;
+    min-height: 400px;
+    padding: 0 20px;
+    margin: 20% 20%;
+    background-color: lightpink;
+    padding: 5px;
+}
+header {
+    background-color: aquamarine;
+    border: 1px solid #e8e8;
+    border-radius: 8px;
+    width:100%;
+    padding: 10px;
+}
+header .checkbox-create > input[type="checkbox"]{
+    display: none;
+}
+
+header div{
+    display: flex;
+}
+header div input {
+    margin-right: 4px;
+}
+
