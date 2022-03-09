@@ -1,10 +1,17 @@
 import '../../public/global.scss'
 
-export function Task(){
+export function Task(props){
+
+
+
     return (
-    <div className="checkbox-create">
+    <div id="task" className="checkbox-create">
         <input type="checkbox"></input>
-        <input type="text"></input>
+        <input 
+        type="text"
+        name='task'
+        value={props.tasks}
+        onChange={(e) => { e.target.value }}></input>
     </div>
     )
 }

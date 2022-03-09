@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: none;
     
 }
 
@@ -26,15 +27,16 @@ html{
     margin: 20% 20%;
     background-color: lightpink;
     padding: 5px;
+    border-radius: 4px;
 }
-header {
+.wrapper{
     background-color: aquamarine;
     border: 1px solid #e8e8;
     border-radius: 8px;
     width:100%;
     padding: 10px;
 }
-header .checkbox-create > input[type="checkbox"]{
+header .checkbox-create > div:first-child{
     display: none;
 }
 
@@ -43,5 +45,6 @@ header div{
 }
 header div input {
     margin-right: 4px;
+    padding: 0 5px;
 }
 
